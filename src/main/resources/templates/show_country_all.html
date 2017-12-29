@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>All Country Information</title>
+    <link rel="stylesheet" type="text/css" th:href="ulli_style.css"/>
+</head>
+<body>
+<ul>
+    <li>index</li>
+    <li>countryname</li>
+    <li>countrycode</li>
+</ul>
+<ul th:each="x,y : ${allCountry}" th:object="${x}">
+    <li><a href="#" th:href="@{/queryCountryById(id=*{id})}"><span th:text="*{id}"/></a></li>
+    <li><span th:text="*{countryname}"/></li>
+    <li><span th:text="*{countrycode}"/></li>
+</ul>
+<form action="#" th:action="@{/queryCountryByCondition}" method="post" th:object="${country}">
+    <input type="text" th:placeholder="countryname" th:field="*{countryname}"/>
+    <input type="text" th:placeholder="countrycode" th:field="*{countrycode}"/>
+    <input type="submit" th:value="QueryCountry"/>
+</form>
+<ul th:each="x : ${tempCountry}" th:object="${x}">
+    <li><span th:text="*{id}"/></li>
+    <li><span th:text="*{countryname}"/></li>
+    <li><span th:text="*{countrycode}"/></li>
+</ul>
+</body>
+</html>

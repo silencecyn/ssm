@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" th:href="ulli_style.css"/>
+</head>
+<body>
+<ul>
+    <li><a href="#" th:href="@{/add_country_page}">新增城市</a></li>
+    <li><a href="#" th:href="@{/selectAll}">显示所有城市</a></li>
+</ul>
+<ul>
+    <li>index</li>
+    <li>current</li>
+    <li>first</li>
+    <li>last</li>
+    <li>size</li>
+    <li>合计</li>
+    <li>计数</li>
+    <li>国际化</li>
+</ul>
+
+<ul th:each="x,y:${ids}">
+    <li><span th:text="${x}"/></li>
+    <li>index:<span th:text="${y.index}"/></li>
+    <li>current:<span th:text="${y.current}"/></li>
+    <li>first:<span th:text="${y.first}"/></li>
+    <li>last:<span th:text="${y.last}"/></li>
+    <li>size:<span th:text="${y.size}"/></li>
+    <li>count:<span th:text="${y.count}"/></li>
+    <li><span th:text="#{china}"/></li>
+</ul>
+</body>
+</html>

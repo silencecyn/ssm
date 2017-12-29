@@ -1,0 +1,9 @@
+ul{
+    list-style: none;
+    boder:1px solid #ff0000;
+    overflow:hidden;
+}
+ul li{
+    width:200px;
+    float:left;
+}

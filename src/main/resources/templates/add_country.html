@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>Add New Country</title>
+</head>
+<body>
+<form action="#" method="post" th:action="@{/addCountry}" th:object="${country}">
+    <ul th:if="${#fields.hasErrors('*')}" class="errorlist">
+        <li th:each="err : ${#fields.errors('*')}" th:text="${err}">Input
+            is incorrect</li>
+    </ul>
+    <input type="text" th:field="*{id}" th:placeholder="输入id"/>
+    <input type="text" th:field="*{countryname}" th:placeholder="输入countryname"/>
+    <input type="text" th:field="*{countrycode}" th:placeholder="输入countrycode"/>
+    <input type="submit" value="Save"/>
+</form>
+</body>
+</html>
