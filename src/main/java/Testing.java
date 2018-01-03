@@ -1,13 +1,21 @@
+import org.apache.tomcat.util.http.fileupload.IOUtils;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
+
+import java.io.*;
+import java.util.Scanner;
+
 public class Testing {
-
-    public void show(int...args){
-        for(int x : args)
-        System.out.print(x+",");
-    }
-
     public static void main(String[] args) {
-        new Testing().show(new int[]{1,2,3,4,5});
-        System.out.print("\n--------------------\n");
-        new Testing().show(11,22,33,44,55);
+        File file = new File("f:\\任务栏重启.bat");
+        Resource resource = new FileSystemResource("src/main/resources/static/pictures");
+        try {
+            System.out.println(resource.getFile());
+            File tempFile = File.createTempFile("silence", ".bat", resource.getFile());
+            IOUtils.copy(new FileInputStream(file), new FileOutputStream(tempFile));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
