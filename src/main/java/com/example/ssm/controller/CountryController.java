@@ -68,4 +68,10 @@ public class CountryController {
         countryService.updateCountry(country);
         return "redirect:selectAll";
     }
+
+    @RequestMapping("/showByPageNo")
+    public String showCountryByPage(@RequestParam("pageNo") int pageNo,Model model ){
+        model.addAttribute("countries",countryService.showCountryByPage(pageNo));
+        return "show_by_page";
+    }
 }

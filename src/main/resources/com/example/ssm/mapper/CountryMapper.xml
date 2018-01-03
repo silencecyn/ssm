@@ -43,4 +43,13 @@
             </if>
         </where>
     </select>
+
+    <select id="showCountryByPage" resultType="Country">
+        <bind name="pageSize" value="5"/>
+        <bind name="begin" value="(pageNo-1)*pageSize+1"/>
+        <bind name="end" value="pageNo*pageSize"/>
+        SELECT rs.id,rs.COUNTRYNAME,rs.COUNTRYCODE from (SELECT c.*,rownum rn from COUNTRY c where rownum<![CDATA[ <= ]]>#{end}) rs
+        WHERE rs.rn>=#{begin}
+    </select>
+
 </mapper>

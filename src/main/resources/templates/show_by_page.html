@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>show_by_page</title>
+    <link rel="stylesheet" type="text/css" th:href="ulli_style.css" />
+</head>
+<body>
+<ul>
+    <li>序号</li>
+    <li>ID</li>
+    <li>城市名称</li>
+    <li>城市代码</li>
+</ul>
+<ul th:each=" c,statu : ${countries}" th:object="${c}">
+    <li><span th:text="${statu.count}"/> </li>
+    <li><span th:text="*{id}" /></li>
+    <li><span th:text="*{countryname}" /></li>
+    <li><span th:text="*{countrycode}" /></li>
+</ul>
+<a th:href="@{/showByPageNo(pageNo=2)}">2</a>
+</body>
+</html>

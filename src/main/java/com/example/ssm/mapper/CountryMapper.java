@@ -19,4 +19,6 @@ public interface CountryMapper {
     List<Country> queryCountryByCondition(Country country);
     Country queryCountryById(Long id);
     List<Integer> getAllCountryId();
+
+    List<Country> showCountryByPage(@Param("pageNo") int pageNo);
 }

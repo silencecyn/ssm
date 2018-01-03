@@ -35,4 +35,9 @@ public class CountryService {
     public int updateCountry(Country country){
         return countryMapper.updateCountry(country);
     }
+
+    public List<Country> showCountryByPage(int pageNo){
+        return countryMapper.showCountryByPage(pageNo);
+    }
+
 }
