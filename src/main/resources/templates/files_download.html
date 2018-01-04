@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <title>文件下载</title>
+</head>
+<body>
+<ul th:each="file,statu : ${files}">
+    <li><a th:href="@{/downloadFile(index=${statu.index})}"><span th:text="${statu.current.getName()}" /></a> </li>
+</ul>
+</body>
+</html>
