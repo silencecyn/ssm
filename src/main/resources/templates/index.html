@@ -23,7 +23,7 @@
 
 <ul th:each="x,y:${ids}">
     <li><span th:text="${x}"/></li>
-    <li>index:<span th:text="${y.index}"/></li>
+    <li>index:<span th:text="${y.index==0?'男':(y.index==1?'女':'基佬')}"/></li>
     <li>current:<span th:text="${y.current}"/></li>
     <li>first:<span th:text="${y.first}"/></li>
     <li>last:<span th:text="${y.last}"/></li>
@@ -33,6 +33,7 @@
 </ul>
 <a th:href="@{/showByPageNo(pageNo=1)}">分页展示</a>
 <a th:href="@{/upload}">文件上传</a>
+<a th:href="@{/showFiles}">文件下载</a>
 
 </body>
 </html>

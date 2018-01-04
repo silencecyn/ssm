@@ -83,16 +83,4 @@ public class CountryController {
         return "upload_country";
     }
 
-    @RequestMapping(value = "/upload", method = RequestMethod.POST)
-    public String upload(MultipartFile file) {
-        Resource resource = new FileSystemResource("src/main/resources/static/pictures");
-        try {
-            File tempFile = File.createTempFile("silence", file.getOriginalFilename(), resource.getFile());
-            IOUtils.copy(file.getInputStream(), new FileOutputStream(tempFile));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return "redirect:/";
-    }
 }
